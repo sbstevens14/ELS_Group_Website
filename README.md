@@ -37,10 +37,12 @@ Images: `public/images/` (headshot + NCSP badge).
 - [ ] **Cloudflare Email Routing** — route `ericka@elsgroupllc.com` →
       `ericka.elsgroup@gmail.com`; add Gmail "Send mail as" for replies.
       (`EmailLink.tsx` already encodes the branded address.)
-- [ ] **Formspree** — create a form, paste its ID into `formspreeId` in
-      `src/lib/site.ts` (form is hidden until set; an email fallback shows).
-- [ ] **Calendly** — create a scheduling link, paste into `bookingUrl` in
-      `src/lib/site.ts` (booking card is hidden until set).
+- [ ] **Calendly** — paste the scheduling link into `bookingUrl` in
+      `src/lib/site.ts` (the booking button appears once set; until then the
+      booking card shows an email fallback). There is deliberately no contact
+      form: the site is static (no server to receive submissions), so contact
+      is booking-first + direct email/phone. If a form is ever wanted, add a
+      service like Formspree or a Cloudflare Worker backend.
 - [x] **GitHub Pages** — enabled with Source: **GitHub Actions** (done 7/30/2026).
 - [ ] **Custom domain** — after the domain is registered, set it on the Pages
       config (Actions deploys ignore the `public/CNAME` file; it's kept only as

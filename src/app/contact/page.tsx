@@ -1,14 +1,29 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
-import ContactForm from "@/components/ContactForm";
 import PhoneLink from "@/components/PhoneLink";
 import EmailLink from "@/components/EmailLink";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with ELS Group LLC — school psychology evaluations, MTSS consultation, professional development, and mentorship. St. Louis, MO and remote.",
+    "Book an intro call or get in touch with ELS Group LLC — school psychology evaluations, MTSS consultation, professional development, and mentorship. St. Louis, MO and remote.",
 };
+
+const CalendarIcon = ({ className }: { className: string }) => (
+  <svg
+    aria-hidden
+    viewBox="0 0 24 24"
+    className={className}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="3" y="4" width="18" height="18" rx="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" />
+  </svg>
+);
 
 export default function ContactPage() {
   return (
@@ -31,29 +46,40 @@ export default function ContactPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-14">
-          <ContactForm />
+        <div className="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:gap-12">
+          {/* Primary action: book a call */}
+          <div className="flex flex-col rounded-2xl border border-gold-300 bg-gold-50 p-8 sm:p-10">
+            <CalendarIcon className="h-10 w-10 text-gold-600" />
+            <h2 className="mt-5 font-serif text-3xl font-semibold text-navy-900">
+              Book an intro call
+            </h2>
+            <p className="mt-3 max-w-md text-[1.02rem] leading-relaxed text-ink-soft">
+              A free 30-minute conversation about your school&apos;s needs — no
+              preparation required. Pick a time that works and it lands on both
+              calendars automatically.
+            </p>
+            {site.bookingUrl ? (
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-7 inline-block self-start rounded-full bg-gold-500 px-8 py-4 text-base font-bold text-navy-950 transition-colors hover:bg-gold-300"
+              >
+                Pick a time
+              </a>
+            ) : (
+              <p className="mt-7 text-sm font-semibold text-ink-soft">
+                The scheduling link is coming online — in the meantime, email
+                works great: <EmailLink variant="contactCard" />
+              </p>
+            )}
+            <p className="mt-6 border-t border-gold-300/60 pt-5 text-sm leading-relaxed text-ink-soft">
+              Prefer to write instead? Email with your school or district, your
+              role, and what you&apos;re working on — Ericka replies personally.
+            </p>
+          </div>
 
           <div className="space-y-6">
-            {site.bookingUrl && (
-              <div className="rounded-2xl border border-gold-300 bg-gold-50 p-7">
-                <h2 className="font-serif text-xl font-semibold text-navy-900">
-                  Prefer to grab a time directly?
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-                  Schedule a free introductory call that fits your calendar.
-                </p>
-                <a
-                  href={site.bookingUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-block rounded-full bg-gold-500 px-6 py-3 text-sm font-bold text-navy-950 transition-colors hover:bg-gold-300"
-                >
-                  Book an intro call
-                </a>
-              </div>
-            )}
-
             <div className="rounded-2xl border border-navy-100 bg-white p-7 shadow-[0_1px_2px_rgba(18,32,54,0.06)]">
               <h2 className="font-serif text-xl font-semibold text-navy-900">
                 Direct contact
