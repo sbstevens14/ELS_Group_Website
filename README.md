@@ -41,8 +41,14 @@ Images: `public/images/` (headshot + NCSP badge).
       `src/lib/site.ts` (form is hidden until set; an email fallback shows).
 - [ ] **Calendly** — create a scheduling link, paste into `bookingUrl` in
       `src/lib/site.ts` (booking card is hidden until set).
-- [ ] **GitHub Pages** — repo Settings → Pages → Source: **GitHub Actions**;
-      custom domain `elsgroupllc.com`; Enforce HTTPS once the cert issues.
+- [x] **GitHub Pages** — enabled with Source: **GitHub Actions** (done 7/30/2026).
+- [ ] **Custom domain** — after the domain is registered, set it on the Pages
+      config (Actions deploys ignore the `public/CNAME` file; it's kept only as
+      documentation):
+      `gh api repos/sbstevens14/ELS_Group_Website/pages -X PUT -f cname=elsgroupllc.com`
+      Then Enforce HTTPS in Settings → Pages once the cert issues. Until then
+      the interim URL https://sbstevens14.github.io/ELS_Group_Website/ renders
+      broken (no basePath) — that's expected.
 - [ ] **Cloudflare DNS** — `A @` → 185.199.108.153 / 185.199.109.153 /
       185.199.110.153 / 185.199.111.153, `CNAME www` → `sbstevens14.github.io`.
       **DNS only (grey cloud)** so GitHub can issue the certificate.
@@ -67,4 +73,5 @@ grep -ri "4678182\|467-8182\|9227979\|922-7979\|Marchbanks\|Granite Ridge\|erick
 ## Deployment
 
 Push to `main` → GitHub Actions builds and deploys `./out` to GitHub Pages
-automatically. `public/CNAME` keeps the custom domain bound.
+automatically. The custom domain is bound in the repo's Pages settings (not by
+`public/CNAME` — Actions-based deploys ignore that file).
