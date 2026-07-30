@@ -30,32 +30,27 @@ Images: `public/images/` (headshot + NCSP badge).
 
 ## Launch checklist (one-time)
 
-- [ ] **Confirm phone number** — draft copy said 314-467-8182, resume says
-      314-922-7979. `PhoneLink.tsx` currently encodes **314-467-8182**; update
-      `CODES` if wrong.
-- [ ] **Register `elsgroupllc.com`** at Cloudflare Registrar.
-- [ ] **Cloudflare Email Routing** — route `ericka@elsgroupllc.com` →
-      `ericka.elsgroup@gmail.com`; add Gmail "Send mail as" for replies.
-      (`EmailLink.tsx` already encodes the branded address.)
-- [ ] **Calendly** — paste the scheduling link into `bookingUrl` in
-      `src/lib/site.ts` (the booking button appears once set; until then the
-      booking card shows an email fallback). There is deliberately no contact
-      form: the site is static (no server to receive submissions), so contact
-      is booking-first + direct email/phone. If a form is ever wanted, add a
-      service like Formspree or a Cloudflare Worker backend.
+- [x] **Phone number confirmed** — 314-467-8182 (encoded in `PhoneLink.tsx`).
+- [x] **`elsgroupllc.com` registered** at Cloudflare Registrar (7/30/2026).
+- [x] **Cloudflare Email Routing** — `ericka@elsgroupllc.com` →
+      `ericka.elsgroup@gmail.com` is live. Optional: add Gmail "Send mail as"
+      so replies come from the branded address.
+- [x] **Calendly** — booking link live: `calendly.com/elsgroupllc/30min`.
+      There is deliberately no contact form: the site is static (no server to
+      receive submissions), so contact is booking-first + direct email/phone.
+      If a form is ever wanted, add a service like Formspree or a Cloudflare
+      Worker backend.
 - [x] **GitHub Pages** — enabled with Source: **GitHub Actions** (done 7/30/2026).
-- [ ] **Custom domain** — after the domain is registered, set it on the Pages
-      config (Actions deploys ignore the `public/CNAME` file; it's kept only as
-      documentation):
+- [x] **Custom domain** — bound via Pages settings, HTTPS enforced (7/30/2026).
+      Note: Actions deploys ignore the `public/CNAME` file (kept as
+      documentation). If the domain ever gets stuck at "DNS Check in Progress",
+      unbind/rebind:
       `gh api repos/sbstevens14/ELS_Group_Website/pages -X PUT -f cname=elsgroupllc.com`
-      Then Enforce HTTPS in Settings → Pages once the cert issues. Until then
-      the interim URL https://sbstevens14.github.io/ELS_Group_Website/ renders
-      broken (no basePath) — that's expected.
-- [ ] **Cloudflare DNS** — `A @` → 185.199.108.153 / 185.199.109.153 /
-      185.199.110.153 / 185.199.111.153, `CNAME www` → `sbstevens14.github.io`.
-      **DNS only (grey cloud)** so GitHub can issue the certificate.
-- [ ] **Cloudflare Web Analytics** — add a site for elsgroupllc.com, paste the
-      beacon token into `cloudflareBeaconToken` in `src/lib/site.ts`.
+- [x] **Cloudflare DNS** — 4× `A @` GitHub Pages IPs + `CNAME www`, all
+      **DNS only (grey cloud)** (zone file in `dns/`).
+- [ ] **Cloudflare Web Analytics** — copy the beacon token from the dashboard
+      (zone → Analytics → Web analytics → Manage RUM Settings → JS snippet) and
+      paste into `cloudflareBeaconToken` in `src/lib/site.ts`.
 - [ ] **Testimonials** — two pending additions ("from Lisa", "from Jeanne");
       add to `site.ts` when received.
 - [ ] Google Search Console (verify via Cloudflare DNS TXT) + submit

@@ -1,10 +1,9 @@
 // Single source of truth for all site content. Edit here, not in components.
+// The phone number (confirmed: 314-467-8182) lives obfuscated in
+// src/components/PhoneLink.tsx; the email address in src/components/EmailLink.tsx.
 //
-// Launch TODOs (see README):
-//  - bookingUrl: paste the Calendly scheduling link
-//  - cloudflareBeaconToken: create a Cloudflare Web Analytics site for elsgroupllc.com
-//  - Phone number is in src/components/PhoneLink.tsx (obfuscated) — confirm the
-//    correct number before launch: draft copy says 314-467-8182, resume says 314-922-7979.
+// Remaining TODO: cloudflareBeaconToken — Web Analytics beacon token from the
+// Cloudflare dashboard (Manage RUM Settings for elsgroupllc.com).
 
 export const site = {
   name: "ELS Group LLC",
