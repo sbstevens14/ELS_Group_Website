@@ -18,7 +18,7 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/ericka-stevens-992472131/",
 
   // Third-party integrations — empty string disables the feature until configured.
-  bookingUrl: "",
+  bookingUrl: "https://calendly.com/elsgroupllc/30min",
   cloudflareBeaconToken: "",
 
   bookingCta: "Now booking for the 2026–27 school year",
