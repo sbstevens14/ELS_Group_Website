@@ -12,3 +12,8 @@ elsgroupllc.com.	1	IN	A	185.199.111.153
 
 ;; CNAME Records
 www.elsgroupllc.com.	1	IN	CNAME	sbstevens14.github.io.
+
+;; TXT Records (email spoofing policy — MX/SPF/DKIM are Cloudflare Email
+;; Routing-managed and not included here)
+;; p=none is monitor-only; tighten to p=quarantine after reports look clean.
+_dmarc.elsgroupllc.com.	1	IN	TXT	"v=DMARC1; p=none; rua=mailto:sbstevens14@gmail.com"
