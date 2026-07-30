@@ -1,9 +1,6 @@
 // Single source of truth for all site content. Edit here, not in components.
 // The phone number (confirmed: 314-467-8182) lives obfuscated in
 // src/components/PhoneLink.tsx; the email address in src/components/EmailLink.tsx.
-//
-// Remaining TODO: cloudflareBeaconToken — Web Analytics beacon token from the
-// Cloudflare dashboard (Manage RUM Settings for elsgroupllc.com).
 
 export const site = {
   name: "ELS Group LLC",
@@ -18,7 +15,7 @@ export const site = {
 
   // Third-party integrations — empty string disables the feature until configured.
   bookingUrl: "https://calendly.com/elsgroupllc/30min",
-  cloudflareBeaconToken: "",
+  cloudflareBeaconToken: "3127ce63d3c548eea76782f1bbc4ab04",
 
   bookingCta: "Now booking for the 2026–27 school year",
 
